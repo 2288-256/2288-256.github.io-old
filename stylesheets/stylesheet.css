@@ -374,3 +374,6 @@ Small Device Styles
     font-size: 11px;
   }
 }
+hr.style1{
+	border-top: 1px solid #8c8b8b;
+}
