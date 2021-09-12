@@ -377,3 +377,15 @@ Small Device Styles
 hr.style1{
 	border-top: 1px solid #000000;
 }
+.box2 {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    background: #FFF;
+    border: solid 2px #000000;/*線*/
+    border-radius: 10px;/*角の丸み*/
+}
+.box2 p {
+    margin: 0; 
+    padding: 0;
+}
