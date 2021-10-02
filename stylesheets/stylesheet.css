@@ -410,3 +410,21 @@ div.container4 p {
 	margin-right: -50%;
 	transform: translate(-50%, -50%);
 }
+
+/*ボタン*/
+.btn--orange,
+a.btn--orange {
+	color: #fff;
+	background-color: #352a22;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+	color: #fff;
+	background: #241d18;
+}
+
+.fa-position-left {
+	position: absolute;
+	top: calc(50% - 0.5em);
+	left: 1rem;
+}
