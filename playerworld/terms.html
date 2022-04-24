@@ -14,12 +14,17 @@
         type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,700,700italic' rel='stylesheet'
         type='text/css'>
-    <script type="text/javascript" src="../js/AuthCode.js"></script>
+    <script type="text/javascript" src="../js/authcode.js"></script>
     <title>PlayerWorldの利用規約</title>
 </head>
 
 <body>
-
+    <style>
+        button#copy {
+            border: none;
+            background: transparent;
+        }
+    </style>
     <!-- HEADER -->
     <div id="header_wrap" class="outer">
         <header class="inner"> <a id="forkme_banner" href="https://github.com/2288-256/2288-256.github.io/tree/web">View
@@ -203,14 +208,14 @@
                         証​ׅ
                         コ​ׅ
                         ー​ׅ
-                        ド(<span id="AuthCode">javascriptを有効にしてください</span>)を入力せずに利用すること、また認​ׅ
+                        ド(<button id="copy" onclick="textcopy()">クリック</button>)を入力せずに利用すること、また認​ׅ
                         証​ׅ
                         コ​ׅ
                         ー​ׅ
                         ドの存在・コ​ׅ
                         ー​ׅ
-                        ドを外部に流出させる行為。</li>
-                    <script>async function saoi(text) { const uint8 = new TextEncoder().encode(text); const digest = await crypto.subtle.digest("SHA-1", uint8); return Array.from(new Uint8Array(digest)).map((v) => v.toString(16).padStart(2, "0")).join(""); } async function anpieo(text) { const uint8 = new TextEncoder().encode(text); const digest = await crypto.subtle.digest("SHA-256", uint8); return Array.from(new Uint8Array(digest)).map((v) => v.toString(16).padStart(2, "0")).join(""); } var AuthCode = document.getElementById("AuthCode"); var today = new Date(); var year = today.getFullYear(); var month = today.getMonth() + 1; var day = today.getDate(); var date1 = year + '' + month + '' + day; anpieo(date1).then(hash => (saoi(hash).then(AuthCodes => AuthCode.innerHTML = AuthCodes)));</script>
+                        ドを外部に流出させる行為。
+                    </li>
                     <li>不正アクセス、または他人であるように振る舞うなどの誤解を与える行為、またはそのおそれのある行為。</li>
                     <li>ねずみ講、マルチ商法、ネットワークビジネスその他連鎖講に類する取引の宣伝・告知・勧誘およびその取引行為。</li>
                     <li>当団体の承認を得ずに行われる、営利を目的とする行為。</li>
