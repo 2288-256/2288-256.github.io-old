@@ -72,7 +72,24 @@
 
         <main>
             <p>このページではJavaScriptを使用しているためJavaScriptを有効にしてください</p>
-            <a href="javascript:history.go(-1)">前のページに戻る(有効にしていない場合は戻れません)</a>
+            <a href="#" onclick="redirect()">前のページに戻る(有効にしていない場合は戻れません)</a>
+            <script>
+                function redirect() {
+                    function getParam(name, url) {
+                        if (!url) url = window.location.href;
+                        name = name.replace(/[\[\]]/g, "\\$&");
+                        var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                            results = regex.exec(url);
+                        if (!results) return null;
+                        if (!results[2]) return '';
+                        return decodeURIComponent(results[2].replace(/\+/g, " "));
+                    }
+
+                    var param = location.search
+                    let url = getParam(redirect)
+                    window.location.href(redirect)
+                }
+            </script>
         </main>
     </div>
 </body>
