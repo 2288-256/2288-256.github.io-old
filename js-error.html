@@ -72,7 +72,7 @@
 
         <main>
             <p>このページではJavaScriptを使用しているためJavaScriptを有効にしてください</p>
-            <a href="#" onclick="redirect()">前のページに戻る(有効にしていない場合は戻れません)</a>
+            <a href="javascript:void(0)" onclick="redirect()">前のページに戻る(有効にしていない場合は戻れません)</a>
             <script>
                 function redirect() {
                     function getParam(name, url) {
@@ -86,8 +86,8 @@
                     }
 
                     var param = location.search
-                    let url = getParam(redirect)
-                    window.location.href(redirect)
+                    let url = getParam('redirect')
+                    window.location.href = url
                 }
             </script>
         </main>
