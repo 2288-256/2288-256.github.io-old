@@ -87,7 +87,7 @@
                     }
 
                     var param = location.search
-                    let url = getParam('redirect')
+                    let url = getParam('redirect') + "&" + getParam("agree")
                     window.location.href = url
                 }
             </script>

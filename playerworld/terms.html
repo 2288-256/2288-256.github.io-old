@@ -15,12 +15,9 @@
         }
 
         var param = location.search
-        if (getParam('agree') == true) {
-        } else {
-            if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i)) {
-                redirecturl = "../smartphone_warning.html?redirect=https://guide.zpw.jp/playerworld/terms&agree=true"
-                window.location.href = redirecturl
-            }
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && getParam('agree') != "true") {
+            redirecturl = "../smartphone_warning.html?redirect=https://guide.zpw.jp/playerworld/terms&agree=true"
+            window.location.href = redirecturl
         }
     </script>
     <link rel="icon" type="image/png" sizes="180x180" href="https://guide.zpw.jp/apple-touch-icon-180x180.png">
