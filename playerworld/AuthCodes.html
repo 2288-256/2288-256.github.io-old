@@ -19,6 +19,35 @@
             redirecturl = "../smartphone_warning.html?redirect=https://guide.zpw.jp/playerworld/terms"
             window.location.href = redirecturl
         }
+
+        let id = getParam("id");
+
+        async function anpieo(text) {
+            const uint8 = new TextEncoder().encode(text);
+            const digest = await crypto.subtle.digest("SHA-256", uint8);
+            return Array.from(new Uint8Array(digest))
+                .map((v) => v.toString(16).padStart(2, "0"))
+                .join("");
+        }
+
+        function run(text) {
+            if (id !== text) {
+                redirecturl = "../error.html?redirect=https://guide.zpw.jp/playerworld/terms&error=401"
+                window.location.href = redirecturl
+            }
+        }
+
+        var today = new Date();
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var day = today.getDate();
+        var text = year + "" + month + "" + day;
+        anpieo(text).then(
+            function (shatxt) {
+                run(shatxt);
+            }
+        )
+
     </script>
     <link rel="icon" type="image/png" sizes="180x180" href="https://guide.zpw.jp/apple-touch-icon-180x180.png">
     <meta charset='utf-8' />
@@ -55,7 +84,9 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
         <section id="main_content" class="inner">
-            <p>認証コード：<span id="AuthCode">javascriptを有効にしてください</span></p>
+            <p>認証コードは</p>
+            <span id="AuthCode"></span>
+            <p>です</p>
             <script>async function saoi(text) { const uint8 = new TextEncoder().encode(text); const digest = await crypto.subtle.digest("SHA-1", uint8); return Array.from(new Uint8Array(digest)).map((v) => v.toString(16).padStart(2, "0")).join(""); } async function anpieo(text) { const uint8 = new TextEncoder().encode(text); const digest = await crypto.subtle.digest("SHA-256", uint8); return Array.from(new Uint8Array(digest)).map((v) => v.toString(16).padStart(2, "0")).join(""); } var AuthCode = document.getElementById("AuthCode"); var today = new Date(); var year = today.getFullYear(); var month = today.getMonth() + 1; var day = today.getDate(); var date1 = year + '' + month + '' + day; anpieo(date1).then(hash => (saoi(hash).then(AuthCodes => AuthCode.innerHTML = AuthCodes)));</script>
     </div>
     <!-- FOOTER  -->

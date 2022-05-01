@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>エラーが発生しました</title>
+    <style>
+        * {
+            color: #222;
+        }
+
+        html {
+            font-size: 14px;
+        }
+
+        .wrap {
+            width: 94%;
+            margin: 2em auto 2em;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 1.6em;
+            line-height: 1.4;
+        }
+
+        main {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.8;
+        }
+
+        dl {
+            margin: 0 auto;
+            border: 1px solid #ccc;
+            padding: 1em;
+            display: table;
+            line-height: 1.8;
+        }
+
+        dd {
+            margin-left: 0;
+            font-weight: bold;
+        }
+
+        .notes {
+            font-size: 0.9em;
+            display: table;
+            margin: 1em auto 0;
+        }
+
+        @media screen and (min-width: 600px) {
+            html {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <script
+        type="text/javascript">var term = 1 * 60000; setTimeout('location.reload();', term - Date.now() % term);</script>
+    <!--nobanner-->
+    <div class="wrap">
+        <h1>エラーが発生しました</h1>
+        <main>
+            <span id="messages">原因不明のエラーが発生しました</span>
+            <hr id="hr">
+            <a id="redirect" href="javascript:void(0)" onclick="redirect()"><span id="redirectmsg">前のページに戻る</span></a>
+            <script>
+                let errorid = getParam("error");
+                let messages = document.getElementById("messages")
+                let redirectmsgs = document.getElementById("redirectmsg")
+                if (errorid == "401") {
+                    document.title = "認証エラー";
+                    messages.innerHTML =
+                        "内部認証に失敗しました<br>原因の多くはブックマーク等直接アクセスする場合です<br>前のページに戻ってもう一度リンクをクリックしてください";
+                } else if (errorid == "noredirect") {
+                    document.title = "リダイレクト先が指定されていません";
+                    messages.innerHTML =
+                        "リダイレクト先が指定されていません";
+                    redirectmsgs.innerHTML = "トップページに戻る";
+                }
+                function getParam(name, url) {
+                    if (!url) url = window.location.href;
+                    name = name.replace(/[\[\]]/g, "\\$&");
+                    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                        results = regex.exec(url);
+                    if (!results) return null;
+                    if (!results[2]) return "";
+                    return decodeURIComponent(results[2].replace(/\+/g, " "));
+                }
+                function redirect() {
+                    let url = getParam("redirect"); if (errorid == "noredirect") {
+                        return window.location.href = "https://guide.zpw.jp";
+                    }
+                    else if (url == null) {
+                        return window.location.href = "error.html?error=noredirect";
+                    } else {
+                        window.location.href = url;
+                    }
+                }
+            </script>
+        </main>
+    </div>
+</body>
+
+</html>
