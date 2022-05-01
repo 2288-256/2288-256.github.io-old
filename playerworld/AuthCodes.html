@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<html lang="ja">
+
+<head>
+    <script type="text/javascript">
+        function getParam(name, url) {
+            if (!url) url = window.location.href;
+            name = name.replace(/[\[\]]/g, "\\$&");
+            var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, " "));
+        }
+
+        var param = location.search
+        if (navigator.userAgent.match(/(iPhone|iPad|iPod|Android)/i) && getParam('agree') != "true") {
+            redirecturl = "../smartphone_warning.html?redirect=https://guide.zpw.jp/playerworld/terms"
+            window.location.href = redirecturl
+        }
+    </script>
+    <link rel="icon" type="image/png" sizes="180x180" href="https://guide.zpw.jp/apple-touch-icon-180x180.png">
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="" />
+    <link rel="stylesheet" type="text/css" media="screen" href="https://guide.zpw.jp/stylesheets/stylesheet.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="https://guide.zpw.jp/stylesheets/menu.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,700italic,700' rel='stylesheet'
+        type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,700,700italic' rel='stylesheet'
+        type='text/css'>
+    <script type="text/javascript" src="../js/authcode.js"></script>
+    <noscript>
+        <meta http-equiv="Refresh" content="0;../js-error.html?redirect=https://guide.zpw.jp/playerworld/terms">
+    </noscript>
+    <title>ホーム</title>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner"> <a id="forkme_banner" href="https://github.com/2288-256/2288-256.github.io/tree/web">View
+                on
+                GitHub</a>
+            <h1 id="project_title">ZSHARE</h1>
+            <h2 id="project_tagline">PlayerWorldを主に運営するサービス団体</h2>
+            <!-- メニューバーの参照 https://guide.zpw.jp/menu -->
+            <iframe src="https://guide.zpw.jp/menu.html" target="_blank rel=" noreferrer="" noopener"="" frameborder="0"
+                style="width: 1000px; height: 200px;"></iframe>
+        </header>
+    </div>
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+        <section id="main_content" class="inner">
+            <p>認証コード：<span id="AuthCode">javascriptを有効にしてください</span></p>
+        </section>
+    </div>
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+        <footer class="inner">
+            <div align="center">
+                <p>Slate theme maintained by <a href="https://github.com/jasoncostello">Jason Costello</a></p>
+                <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+                <p>DNS servers by ZERO</p>
+            </div>
+    </div>
+</body>
+
+</html>

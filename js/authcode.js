@@ -18,10 +18,16 @@ function textcopy() {
 	var month = today.getMonth() + 1;
 	var day = today.getDate();
 	var date1 = year + "" + month + "" + day;
+	var AuthCode = document.getElementById("AuthCode");
 	anpieo(date1).then((hash) =>
 		saoi(hash).then((text) => {
 			navigator.clipboard.writeText(text);
 		})
 	);
-	alert("認証コードをコピーしました");
+	anpieo(date1).then((hash) =>
+		saoi(hash).then((AuthCodes) => (AuthCode.innerHTML = AuthCodes))
+	);
+	alert(
+		"認証コードをコピーしました\nMacの方は以下のリンクでご確認ください\nhttps://guide.zpw.jp/playerworld/AuthCodes"
+	);
 }
