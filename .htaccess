@@ -1,3 +1,9 @@
+Order allow,deny
+Allow from all
+<Files "terms.html">
+  Deny from all
+</Files>
+
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.html -f
@@ -5,9 +11,3 @@ RewriteRule ^(.*)$ $1.html
 
 ErrorDocument 404 /404.html
 ErrorDocument 403 /403.html
-
-Order allow,deny
-Allow from all
-<Files "terms.html">
-  Deny from all
-</Files>
